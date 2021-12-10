@@ -23,7 +23,7 @@ client.on('ready', () => {
     // The name of the local folder for your feature files
     featureDir: path.join(__dirname, 'features'),
     // Allow importing of .ts files if you are using ts-node
-    typeScript: false,
+    typeScript: process.env.IS_LOCAL.trim().toLowerCase() === 'true' ? true : false,
     testServers: (process.env.TEST_GUILD_IDS || '').split(','),
     mongoUri,
   }).setDefaultPrefix('*');
