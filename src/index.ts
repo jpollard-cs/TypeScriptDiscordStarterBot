@@ -21,13 +21,20 @@ client.on('ready', () => {
   new WOKCommands(client, {
     // The name of the local folder for your command files
     commandDir: path.join(__dirname, 'commands'),
-    // The name of the local folder for your feature files
-    featureDir: path.join(__dirname, 'features'),
+    // // The name of the local folder for your feature files
+    // featureDir: path.join(__dirname, 'features'),
     // Allow importing of .ts files if you are using ts-node
-    typeScript: process.env.IS_LOCAL.trim().toLowerCase() === 'true' ? true : false,
+    typeScript: false,
     testServers: (process.env.TEST_GUILD_IDS || '').split(','),
     mongoUri,
-  }).setDefaultPrefix('*');
+  }).setDefaultPrefix('*')
+    .setCategorySettings([
+      {
+        name: 'Fun & Games Admin',
+        emoji: '🎮',
+        hidden: true,
+      },
+    ]);
 });
 
 // hack to keep repl.it process alive
