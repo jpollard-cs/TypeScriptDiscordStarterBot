@@ -9,13 +9,13 @@ export = {
   name: 'configure',
   minArgs: 1,
   maxArgs: 1,
-  expectedArgs: '[bot_logging_channel_id]',
+  expectedArgs: '[bot_logging_channel]',
   slash: true,
   requireRoles: true,
   guildOnly: true,
   testOnly: false,
   options: [{
-    name: 'bot_logging_channel_id',
+    name: 'bot_logging_channel',
     description: 'the Channel where we should send important bot log messages',
     type: 'CHANNEL',
     required: true,
@@ -28,7 +28,7 @@ export = {
         return instance.messageHandler.get(guild, 'SYNTAX_ERROR');
       }
 
-      const loggingChannel = interaction.options.getChannel('bot_logging_channel_id', true);
+      const loggingChannel = interaction.options.getChannel('bot_logging_channel', true);
       const loggingChannelId = loggingChannel.id;
 
       if (guild) {
