@@ -21,7 +21,8 @@ client.on('ready', () => {
   new WOKCommands(client, {
     // The name of the local folder for your command files
     commandDir: path.join(__dirname, 'commands'),
-    // // The name of the local folder for your feature files
+    // The name of the local folder for your feature files
+    // TODO: uncomment if you have features to add
     // featureDir: path.join(__dirname, 'features'),
     // Allow importing of .ts files if you are using ts-node
     typeScript: false,
@@ -30,9 +31,8 @@ client.on('ready', () => {
   }).setDefaultPrefix('*')
     .setCategorySettings([
       {
-        name: 'Fun & Games Admin',
-        emoji: '🎮',
-        hidden: true,
+        name: 'Configuration',
+        emoji: '⚙️',
       },
     ]);
 });
