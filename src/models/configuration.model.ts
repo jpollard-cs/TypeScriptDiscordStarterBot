@@ -6,11 +6,7 @@ const schema = new mongoose.Schema({
     unique: true,
     required: true,
   },
-  admin_reporting_channel_id: {
-    type: String,
-    required: true,
-  },
-  help_user_id_image_url: {
+  logging_channel_id: {
     type: String,
     required: true,
   },
