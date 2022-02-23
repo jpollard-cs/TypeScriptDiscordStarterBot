@@ -1,6 +1,6 @@
 import { ICallbackObject, ICommand } from 'wokcommands';
 import { MessageEmbed } from 'discord.js';
-import configurationModel from '../models/configuration.model';
+import ConfigurationModel from '../models/configuration.model';
 import { AppColors } from '../configuration/colors';
 
 export = {
@@ -36,7 +36,7 @@ export = {
           return instance.messageHandler.get(guild, 'NO_DATABASE_FOUND');
         }
 
-        await configurationModel.findOneAndUpdate(
+        await ConfigurationModel.findOneAndUpdate(
           {
             guild_id: guild.id,
           },
