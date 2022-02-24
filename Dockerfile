@@ -11,5 +11,7 @@ COPY . .
 # Build and then trim out the devDependencies from node_modules
 RUN yarn install --frozen-lockfile \
   && yarn build
+  
+RUN yarn global add pm2
 
-CMD ["node", "/app/dist/index.js"]
+CMD ["pm2", "start", "/app/dist/index.js"]
